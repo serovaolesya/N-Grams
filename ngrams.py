@@ -15,3 +15,21 @@ def bigram(doc):
         result.append(element)
 
     return result
+
+
+def trigram(doc):
+    result = list()
+    sentence = list()
+    # parse through the document to add all tokens that are words to the sentence list
+    for token in doc:
+        if token.is_alpha:
+            sentence.append(token)
+    # parse through the sentence while adding words in groups of three to the result
+    for word in range(len(sentence) - 2):
+        first_word = sentence[word]
+        second_word = sentence[word + 1]
+        third_word = sentence[word + 2]
+        element = [first_word.text, second_word.text, third_word]
+        result.append(element)
+
+    return result
